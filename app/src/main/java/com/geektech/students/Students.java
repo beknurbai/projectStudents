@@ -6,15 +6,6 @@ import java.io.Serializable;
 public class Students implements Serializable {
     private String et_add_name,et_add_surname,et_add_patronymic,et_add_birthday,
             et_add_phone,et_add_address,et_add_group,et_add_assessments;
-    private int position;
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
 
     public String getEt_add_name() {
         return et_add_name;
