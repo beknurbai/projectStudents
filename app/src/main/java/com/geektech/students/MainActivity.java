@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements onClick{
     private RecyclerView recyclerView;
     private Adapter adapter;
     private Students students;
+    private ArrayList<Students> list = new ArrayList<>();
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements onClick{
 
     @Override
     public void click(int pos , Students students) {
-        Log.e("ololo", "click: " + pos );
-        adapter.pos = pos;
+        list.remove(pos);
         Intent intent = new Intent(this,CreateStudentsActivity.class);
         intent.putExtra("result", students);
         startActivityForResult(intent,REQUEST_KOD);
@@ -69,7 +70,8 @@ public class MainActivity extends AppCompatActivity implements onClick{
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_KOD && resultCode == RESULT_OK && data != null) {
             students = (Students) data.getSerializableExtra(CreateStudentsActivity.EXTRA_KEY);
-            adapter.update(students);
+            list.add(position,students);
+            adapter.update(list);
             adapter.notifyDataSetChanged();
         }
     }

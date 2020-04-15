@@ -1,6 +1,5 @@
 package com.geektech.students;
 
-import android.widget.EditText;
 
 import java.io.Serializable;
 

@@ -14,16 +14,14 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Students> list;
     onClick onClick;
-    int pos;
 
     public Adapter() {
         list = new ArrayList<>();
     }
 
-    public void update(Students students) {
-            list.remove(pos);
-            list.add(pos, students);
-            notifyDataSetChanged();
+    public void update(ArrayList<Students> students) {
+        list = students;
+        notifyDataSetChanged();
         }
     @NonNull
     @Override
